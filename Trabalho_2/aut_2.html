@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1 id="welcome-message">BEM VINDO!</h1>
+        <button id="access-button">ACESSAR</button>
+    </div>
+    <script>
+        document.getElementById('access-button').addEventListener('click', function() {
+            var nome = prompt('Digite seu nome');
+            if (nome) {
+                document.getElementById('welcome-message').textContent = `BEM VINDO, ${nome.toUpperCase()}!`;
+                document.getElementById('access-button').textContent = 'SAIR DA CONTA';
+                document.getElementById('access-button').removeEventListener('click', arguments.callee);
+                document.getElementById('access-button').addEventListener('click', function() {
+                    alert('Até mais!');
+                    document.location.reload();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
